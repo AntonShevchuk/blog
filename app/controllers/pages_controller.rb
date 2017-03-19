@@ -7,5 +7,7 @@ class PagesController < ApplicationController
   end
   def show
     @page = Page.find(params[:id])
+    @older = Page.where('created_at < ?', @page.created_at).take
+    @newer = Page.where('created_at > ?', @page.created_at).take
   end
 end

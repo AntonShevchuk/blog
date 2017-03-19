@@ -1,12 +1,24 @@
 <% render "users/about", bio: @page.user.bio %>
 <div class="blog-post">
   <h2 class="blog-post-title"><%= @page.title %></h2>
-  <p class="blog-post-meta"><%= @page.created_at%> by <%= link_to @page.user.name, user_path(@page.user) %></p>
+  <p class="blog-post-meta"><%= @page.created_at.strftime('%B %d, %Y')%> by <%= link_to @page.user.name, user_path(@page.user) %></p>
   <%= @page.content.html_safe %>
   <hr/>
   <p class="blog-post-meta">
-  <% @page.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
+  <% @page.tags.each_with_index do |tag, i| %>
+    <%= link_to tag.name, tag_path(tag) %><%= "," if i < @page.tags.size - 1 %>
   <% end %>
   <p>
 </div>
+<nav class="blog-pagination">
+  <% if !@older %>
+    <a class="btn btn-outline-secondary disabled" href="#">Older</a>
+  <% else %>
+    <%= link_to "Older", page_path(@older), class: "btn btn-outline-primary" %>
+  <% end %>
+  <% if !@newer %>
+    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+  <% else %>
+    <%= link_to "Newer", page_path(@newer), class: "btn btn-outline-primary" %>
+  <% end %>
+</nav>
