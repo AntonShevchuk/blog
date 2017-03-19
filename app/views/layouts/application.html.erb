@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="blog-masthead  sticky-top ">
+      <div class="container">
+        <nav class="navbar navbar-toggleable-md navbar-light ">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">Blog</a>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav  mr-auto">
+                <a class="nav-item nav-link " href="/">Home</a>
+                <a class="nav-item nav-link " href="/pages">Pages</a>
+            </div>
+            <div class="navbar-nav my-2 my-lg-0">
+              <% if current_user %>
+                <%= link_to current_user.name, user_path(current_user), class: "nav-item nav-link"  %>
+                <%= link_to "Log out", logout_path, method: "delete", class: "nav-item nav-link" %>
+              <% else %>
+                <%= link_to "Login", login_path, class: "nav-item nav-link"  %>
+                <%= link_to "Signup", '', class: "nav-item nav-link"  %>
+              <% end %>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <%= yield %>
+        </div>
+
+        <div class="col-sm-3 offset-sm-1 blog-sidebar">
+
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="/archive/2017/03">March 2017</a>
+              <li><a href="/archive/2017/04">April 2017</a>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/AntonShevchuk">GitHub</a></li>
+              <li><a href="https://twitter.com/AntonShevchuk">Twitter</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div>
+    </div> <!-- /container -->
+
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+  </body>
+</html>
