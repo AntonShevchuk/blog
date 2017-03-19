@@ -1,7 +1,11 @@
 <% render "users/about", bio: @page.user.bio %>
 <div class="blog-post">
   <h2 class="blog-post-title"><%= @page.title %></h2>
-  <p class="blog-post-meta"><%= @page.created_at.strftime('%B %d, %Y')%> by <%= link_to @page.user.name, user_path(@page.user) %></p>
+  <p class="blog-post-meta">
+    Posted at <%= @page.created_at.strftime('%B %d, %Y')%>
+    by <%= link_to @page.user.name, user_path(@page.user) %>
+    to <%= link_to @page.category.name, category_path(@page.category) %>
+  </p>
   <%= @page.content.html_safe %>
   <hr/>
   <p class="blog-post-meta">
