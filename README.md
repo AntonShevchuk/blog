@@ -1,24 +1,11 @@
-# README
+# Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It's just my personal sandbox
 
-Things you may want to cover:
+## Achievements
 
-* Ruby version
+[![Build Status](https://travis-ci.org/AntonShevchuk/blog.svg?branch=master)](https://travis-ci.org/AntonShevchuk/blog)
 
-* System dependencies
+## Copyright
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Are you sure? Ok, meet MIT
