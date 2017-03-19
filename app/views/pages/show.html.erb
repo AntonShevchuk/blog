@@ -1,3 +1,4 @@
+<% render "users/about", bio: @page.user.bio %>
 <div class="blog-post">
   <h2 class="blog-post-title"><%= @page.title %></h2>
   <p class="blog-post-meta"><%= @page.created_at%> by <%= link_to @page.user.name, user_path(@page.user) %></p>

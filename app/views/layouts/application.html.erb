@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
-
+          <%= yield :sidebar %>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
