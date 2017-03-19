@@ -1,0 +1,5 @@
+<h2><%= @user.name %></h2>
+<p><%= @user.bio %></p>
+<h3>Pages</h3>
+<hr/>
+<%= render "pages/list", pages: @user.pages %>
