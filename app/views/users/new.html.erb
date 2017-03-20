@@ -1,0 +1,23 @@
+<%= form_for @user, url: users_path do |f| %>
+  <%= bootstrap_field_wrap @user, :first_name do %>
+    <%= f.label :first_name, class: "sr-only" %>
+    <%= f.text_field :first_name, :placeholder => 'First Name', class: "form-control" %>
+  <% end %>
+  <%= bootstrap_field_wrap @user, :last_name do %>
+    <%= f.label :last_name, class: "sr-only" %>
+    <%= f.text_field :last_name, :placeholder => 'Last Name', class: "form-control" %>
+  <% end %>
+  <%= bootstrap_field_wrap @user, :email do %>
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.email_field :email, :placeholder => 'Email', class: "form-control" %>
+  <% end %>
+  <%= bootstrap_field_wrap @user, :password do %>
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password, :placeholder => 'Password', class: "form-control" %>
+  <% end %>
+  <%= bootstrap_field_wrap @user, :password_confirmation do %>
+    <%= f.label :password_confirmation, class: "sr-only" %>
+    <%= f.password_field :password_confirmation, :placeholder => 'Confirm password', class: "form-control" %>
+  <% end %>
+  <%= f.submit "Sign up", :class => "btn btn-primary" %>
+<% end %>

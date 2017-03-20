@@ -3,4 +3,5 @@ class Page < ApplicationRecord
   belongs_to :user
   has_many :parts
   has_many :tags, through: :parts
+  validates :title, :content, presence: true
 end
