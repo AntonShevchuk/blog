@@ -1,7 +1,10 @@
 <% content_for :title, @page.title %>
 <% render "users/about", bio: @page.user.bio %>
 <div class="blog-post">
-  <h2 class="blog-post-title"><%= @page.title %></h2>
+  <h2 class="blog-post-title">
+    <%= @page.title %>
+    <%= link_to "Edit", edit_page_path(@page), class: "btn btn-default" if session[:user_id] == @page.user_id %>
+  </h2>
   <p class="blog-post-meta">
     Posted at <%= @page.created_at.strftime('%B %d, %Y')%>
     by <%= link_to @page.user.name, user_path(@page.user) %>
