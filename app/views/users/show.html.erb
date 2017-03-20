@@ -1,5 +1,12 @@
-<h2><%= @user.name %></h2>
+<h2>
+  <%= @user.name %>
+  <%= link_to "Edit", edit_user_path(@user), class: "btn btn-default" if session[:user_id] == @user.id %>
+</h2>
 <p><%= @user.bio %></p>
 <h3>Pages</h3>
 <hr/>
 <%= render "pages/list", pages: @user.pages %>
+<% if @user.id == session[:user_id] %>
+<hr/>
+<%= link_to "Create page", new_page_path, class: "btn btn-primary" %>
+<% end %>

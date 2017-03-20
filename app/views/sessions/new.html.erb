@@ -1,5 +1,6 @@
-<%= form_for(:session, url: login_path, class: "form-signin") do |f| %>
-  <h2 class="form-signin-heading">Please log in</h2>
+
+<%= form_for(:session, url: login_path, html: {class:"form-signin"}) do |f| %>
+  <legend>Please log in</legend>
   <%= f.label :email, class: "sr-only" %>
   <%= f.email_field :email, :placeholder => "Email", class: "form-control" %>
   <%= f.label :password, class: "sr-only" %>

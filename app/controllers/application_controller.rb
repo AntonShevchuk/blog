@@ -6,11 +6,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   def require_user
-    redirect_to login_path unless current_user
+    if (!current_user)
+      flash[:alert] = "Please login before to continue"
+      redirect_to login_path
+    end
   end
   def require_editor
     require_user
-    redirect_to root_path unless current_user.editor?
+    redirect_to root_path unless (current_user.editor? || current_user.admin?)
   end
   def require_admin
     require_user

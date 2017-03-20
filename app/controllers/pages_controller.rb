@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :require_user, only: [:new, :edit, :update, :destroy]
   def new
     @page = Page.new
   end
