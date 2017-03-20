@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+<div class="blog-post">
+  <h3 class="blog-post-title"><%= link_to user.name, user_path(user) %></h3>
+  <p class="blog-post-meta">
+      <%= user.bio %>
+  </p>
+</div>
+<% end %>
