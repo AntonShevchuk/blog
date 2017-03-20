@@ -1,5 +1,4 @@
-<%= debug @page.errors %>
-<%= form_for @page, url: pages_path do |f| %>
+<%= form_for @page do |f| %>
   <legend>Please fill required fields</legend>
   <%= bootstrap_field_wrap @page, :title do %>
     <%= f.label :title, class: "sr-only" %>

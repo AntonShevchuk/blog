@@ -22,6 +22,22 @@ class PagesController < ApplicationController
       render 'new'
     end
   end
+  def edit
+    @page = Page.find_by_id(params[:id])
+    owner? @page
+    render 'new'
+  end
+  def update
+    @page = Page.find_by_id(params[:id])
+    owner? @page
+    if @page.update(page_params)
+      flash[:notice] = "Page updated"
+      redirect_to page_path(:id => @page.id)
+    else
+      flash.now[:error] = "Please fix all errors"
+      render 'new'
+    end
+  end
   def archive
     first = Date.new(params[:year].to_i, params[:month].to_i, 01)
     last = first + 1.month
@@ -29,6 +45,16 @@ class PagesController < ApplicationController
     @date = first.strftime('%B %Y')
   end
   private
+  def owner? page
+    unless page.present?
+      flash[:alert] = "Page not found"
+      redirect_to pages_path
+      return nil
+    end
+    if page.user_id != session[:user_id]
+      redirect_to page_path(:id => page.id)
+    end
+  end
   def page_params
     params.require(:page).permit(:title, :content, :category_id)
   end

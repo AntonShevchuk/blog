@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     ami? @user
     if @user.update(user_params)
-      flash[:notice] = "Profile saved"
+      flash[:notice] = "Profile updated"
       redirect_to user_path(:id => @user.id)
     else
       flash.now[:error] = "Please fix all errors"

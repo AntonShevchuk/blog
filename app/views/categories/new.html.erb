@@ -1,0 +1,7 @@
+<%= form_for @category do |f| %>
+  <%= bootstrap_field_wrap @category, :name do %>
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, :placeholder => 'Category name', class: "form-control" %>
+  <% end %>
+  <%= f.submit "Save", :class => "btn btn-primary" %>
+<% end %>
