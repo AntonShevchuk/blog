@@ -1,3 +1,4 @@
-<h2>Category archive: <%= @category.name %></h2>
+<% content_for :title, "Category #{@category.name}" %>
+<h2>Category <%= @category.name %></h2>
 <hr/>
-<%= render "pages/list", pages: @category.pages %>
+<%= render "pages/index" %>

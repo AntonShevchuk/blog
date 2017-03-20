@@ -1,3 +1,4 @@
-<h2>Tag archive: <%= @tag.name %></h2>
+<% content_for :title, "Tag archive #{@tag.name}" %>
+<h2>Archive for "<%= @tag.name %>" tag</h2>
 <hr/>
-<%= render "pages/list", pages: @tag.pages %>
+<%= render "pages/index" %>

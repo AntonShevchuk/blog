@@ -3,7 +3,6 @@
   <head>
     <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -50,13 +49,16 @@
 
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
           <%= yield :sidebar %>
+          <% if @archive_data %>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="/archive/2017/03">March 2017</a>
-              <li><a href="/archive/2017/04">April 2017</a>
+              <% @archive_data.each do |data| %>
+              <li><%= link_to Date.new(data.year.to_i, data.month.to_i).strftime('%B %Y'), archive_path(year:data.year, month:data.month) %></a>
+              <% end %>
             </ol>
           </div>
+          <% end %>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">

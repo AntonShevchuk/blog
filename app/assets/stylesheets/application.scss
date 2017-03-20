@@ -162,11 +162,15 @@ h6, .h6 {
  */
 
 .blog-post {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
-.blog-post-title {
+h2.blog-post-title {
   margin-bottom: .25rem;
   font-size: 2.5rem;
+}
+h3.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 1.6rem;
 }
 .blog-post-meta {
   margin-bottom: 1.25rem;

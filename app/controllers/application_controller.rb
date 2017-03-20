@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
+  before_action :archive_data
 
+  def archive_data
+    @archive_data ||= Page.select('strftime("%Y", created_at) as year, strftime("%m", created_at) as month').distinct
+  end
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
