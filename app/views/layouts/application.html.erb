@@ -18,16 +18,16 @@
           <a class="navbar-brand" href="#">Blog</a>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav  mr-auto">
-                <a class="nav-item nav-link " href="/">Home</a>
-                <a class="nav-item nav-link " href="/pages">Pages</a>
+              <%= link_to "Home", root_path, class: "nav-item nav-link #{'active' if current_page? root_path}" %>
+              <%= link_to "Pages", pages_path, class: "nav-item nav-link #{'active' if current_page? pages_path}" %>
             </div>
             <div class="navbar-nav my-2 my-lg-0">
               <% if current_user %>
-                <%= link_to current_user.name, user_path(current_user), class: "nav-item nav-link"  %>
+                <%= link_to current_user.name, user_path(current_user), class: "nav-item nav-link #{'active' if current_page? user_path(current_user)}"  %>
                 <%= link_to "Log out", logout_path, method: "delete", class: "nav-item nav-link" %>
               <% else %>
-                <%= link_to "Login", login_path, class: "nav-item nav-link"  %>
-                <%= link_to "Signup", signup_path, class: "nav-item nav-link"  %>
+                <%= link_to "Login", login_path, class: "nav-item nav-link #{'active' if current_page? login_path}"  %>
+                <%= link_to "Signup", signup_path, class: "nav-item nav-link #{'active' if current_page? signup_path}"  %>
               <% end %>
             </div>
           </div>
