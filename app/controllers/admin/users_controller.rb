@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "User created"
-      redirect_to admin_users_path
+      redirect_to admin_users_path and return
     else
       flash.now[:error] = "Please fix all errors"
       render 'new'
@@ -28,7 +28,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Profile updated"
-      redirect_to admin_users_path
+      redirect_to admin_users_path and return
     else
       flash.now[:error] = "Please fix all errors"
       render 'edit'

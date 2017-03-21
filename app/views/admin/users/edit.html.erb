@@ -1,4 +1,4 @@
-<%= form_for @user, url: user_path do |f| %>
+<%= form_for @user, url: admin_user_path do |f| %>
   <legend>Edit profile for <%= @user.name %></legend>
   <%= bootstrap_field_wrap @user, :first_name do %>
     <%= f.label :first_name, class: "sr-only" %>
@@ -14,7 +14,7 @@
   <% end %>
   <%= bootstrap_field_wrap @user, :role do %>
     <%= f.label :role, class: "sr-only" %>
-    <%= f.text_field :role, :placeholder => 'Role', class: "form-control" %>
+    <%= f.collection_select :role, User::ROLES, :to_s, :to_s, {include_blank: true}, {class: "form-control"} %>
   <% end %>
   <%= bootstrap_field_wrap @user, :bio do %>
     <%= f.label :bio, class: "sr-only" %>

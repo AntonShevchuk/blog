@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, confirmation: true
 
+  ROLES = ['admin', 'editor']
+
   def name
     return "#{first_name} #{last_name}"
   end

@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     ami? @user
     if @user.update(user_params)
       flash[:notice] = "Profile updated"
-      redirect_to user_path(:id => @user.id)
+      redirect_to user_path(@user) and return
     else
       flash.now[:error] = "Please fix all errors"
       render 'edit'
@@ -38,11 +38,10 @@ class UsersController < ApplicationController
   def ami? user
     unless user.present?
       flash[:alert] = "User not found"
-      redirect_to users_path
-      return nil
+      redirect_to users_path and return
     end
     if user.id != session[:user_id]
-      redirect_to user_path(:id => user.id)
+      redirect_to user_path(:id => user.id) and return
     end
   end
   def user_params
