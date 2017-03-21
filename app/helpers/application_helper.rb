@@ -19,9 +19,9 @@ module ApplicationHelper
   # Generate wrapper for form fields with errors placeholder
   def bootstrap_field_wrap(record, field)
     concat(content_tag(:div, class: "form-group" <<  ( record.errors.has_key?(field) ? " has-danger" : "")) do
-        concat yield
-        concat content_tag(:div, record.errors.full_messages_for(field).join('<br/>'), class: "form-control-feedback")
-      end)
+      concat yield
+      concat content_tag(:div, record.errors.full_messages_for(field).join('<br/>'), class: "form-control-feedback")
+    end)
     nil
   end
 end
