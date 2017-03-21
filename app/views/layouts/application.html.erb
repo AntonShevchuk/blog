@@ -35,7 +35,7 @@
             <h4>Archives</h4>
             <ol class="list-unstyled">
               <% archive_data.each do |data| %>
-              <li><%= link_to Date.new(data.year.to_i, data.month.to_i).strftime('%B %Y'), archive_path(year:data.year, month:data.month) %></a>
+              <li><%= link_to Date.new(data.year.to_i, data.month.to_i).strftime('%B %Y'), archive_path(year:data.year.to_i, month:data.month.to_i) %></a>
               <% end %>
             </ol>
           </div>

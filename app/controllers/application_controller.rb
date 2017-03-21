@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   # Before all actions
   # Get data for archive sidebar
   def archive_data
-    @archive_data ||= Page.select('strftime("%Y", created_at) as year, strftime("%m", created_at) as month').distinct
+    # For SQLite you can use strftime("%Y", created_at) as year, strftime("%m", created_at) as month
+    @archive_data ||= Page.select('extract(year from created_at) as year, extract(month from created_at) as month').distinct
   end
   # Get data for categories sidebar
   def category_data
