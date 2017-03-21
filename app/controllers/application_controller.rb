@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :archive_data, :category_data, :current_user, :admin?
   protect_from_forgery with: :exception
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   # Before all actions
   # Get data for archive sidebar
   def archive_data
