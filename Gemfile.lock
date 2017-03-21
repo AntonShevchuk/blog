@@ -48,6 +48,8 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -172,6 +174,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha6)
   byebug
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
