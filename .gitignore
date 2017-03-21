@@ -22,3 +22,8 @@
 
 # Ignore coverage report
 coverage
+
+# Ignore vendor dir's
+vendor/bundle/*
+vendor/cache/*
+vendor/plugins/*
