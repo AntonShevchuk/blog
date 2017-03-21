@@ -7,6 +7,11 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @pages = @category.pages
   end
+  def show_by_name
+    @category = Category.where(name: params[:name]).take
+    @pages = @category.pages
+    render 'show'
+  end
   def new
     @category = Category.new
   end

@@ -24,7 +24,7 @@
             <h4>Categories</h4>
             <ol class="list-unstyled">
               <% category_data.each do |cat| %>
-              <li><%= link_to cat.name, category_path(id:cat.id) %></a>
+              <li><%= link_to cat.name, categoryname_path(name:cat.name) %></a>
               <% end %>
             </ol>
           </div>

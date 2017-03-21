@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'index#index', as: 'root'
   get '/archive/:year/:month', to: 'pages#archive', as: 'archive'
-  get '/category/:name', to: 'category#show_by_name', as: 'categoryname'
+  get '/category/:name', to: 'categories#show_by_name', as: 'categoryname'
 
   resources :users
   resources :pages
