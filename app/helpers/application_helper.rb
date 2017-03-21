@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   # Generate flash messages with Boostrap classes
-  def boostrap_flash_messages(opts = {})
+  def boostrap_flash_messages
     flash.each do |msg_type, message|
       concat(content_tag(:div, message, role: "alert", class: "alert #{bootstrap_class_for(msg_type)} sticky-top fade show") do
         concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })

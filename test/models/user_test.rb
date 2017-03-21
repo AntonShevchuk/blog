@@ -3,6 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(first_name: "First", last_name: "Last", email: "user@example.com", password: "password", password_confirmation: "password")
+    @admin = User.new(role: "admin")
+    @editor = User.new(role: "editor")
   end
 
   test "should be valid" do
@@ -26,5 +28,13 @@ class UserTest < ActiveSupport::TestCase
 
   test "name should be generated on fly" do
     assert_equal @user.name, "First Last"
+  end
+
+  test "check admin role" do
+    assert @admin.admin?
+  end
+
+  test "check editor role" do
+    assert @editor.editor?
   end
 end
