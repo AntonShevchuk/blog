@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_owner, only: [:edit, :update, :destroy]
   def index
     @users = User.where(:role => 'editor')
   end
@@ -20,12 +21,10 @@ class UsersController < ApplicationController
     end
   end
   def edit
-    @user = User.find_by_id(params[:id])
-    ami? @user
+    # require_owner
   end
   def update
-    @user = User.find_by_id(params[:id])
-    ami? @user
+    # require_owner
     if @user.update(user_params)
       flash[:notice] = "Profile updated"
       redirect_to user_path(@user) and return
@@ -36,12 +35,13 @@ class UsersController < ApplicationController
   end
   private
   def ami? user
-    unless user.present?
-      flash[:alert] = "User not found"
-      redirect_to users_path and return
-    end
-    if user.id != session[:user_id]
-      redirect_to user_path(:id => user.id) and return
+    return user.present? && user.id == session[:user_id]
+  end
+  def require_owner
+    @user = User.find_by_id(params[:id])
+    unless ami? @user
+      flash[:error] = "Only user can do this!"
+      redirect_to users_path
     end
   end
   def user_params

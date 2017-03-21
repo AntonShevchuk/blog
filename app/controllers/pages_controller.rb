@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :require_user, only: [:new, :edit, :update, :destroy]
+  before_action :require_owner, only: [:edit, :update, :destroy]
   helper_method :owner?
   def index
     @pages = Page.all
@@ -24,13 +25,11 @@ class PagesController < ApplicationController
     end
   end
   def edit
-    @page = Page.find_by_id(params[:id])
-    require_owner @page
+    # require_owner
     render 'new'
   end
   def update
-    @page = Page.find_by_id(params[:id])
-    require_owner @page
+    # require_owner
     if @page.update(page_params)
       flash[:notice] = "Page updated"
       redirect_to page_path(:id => @page.id)
@@ -40,8 +39,7 @@ class PagesController < ApplicationController
     end
   end
   def destroy
-    @page = Page.find_by_id(params[:id])
-    require_owner @page
+    # require_owner
     owner_id = @page.user_id
     @page.destroy
     flash[:notice] = "Page removed"
@@ -61,13 +59,11 @@ class PagesController < ApplicationController
     end
     return false
   end
-  def require_owner page
-    unless page.present?
-      flash[:alert] = "Page not found"
-      redirect_to pages_path and return
-    end
-    if page.user_id != session[:user_id]
-      redirect_to page_path(:id => page.id) and return
+  def require_owner
+    @page = Page.find_by_id(params[:id])
+    unless owner? @page
+      flash[:error] = "Only owner can do this!"
+      redirect_to pages_path
     end
   end
   def page_params
