@@ -64,11 +64,10 @@ class PagesController < ApplicationController
   def require_owner page
     unless page.present?
       flash[:alert] = "Page not found"
-      redirect_to pages_path
-      return nil
+      redirect_to pages_path and return
     end
     if page.user_id != session[:user_id]
-      redirect_to page_path(:id => page.id)
+      redirect_to page_path(:id => page.id) and return
     end
   end
   def page_params

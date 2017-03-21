@@ -32,11 +32,9 @@ class ApplicationController < ActionController::Base
     end
   end
   def require_editor
-    require_user
-    redirect_to root_path unless (current_user.editor? || current_user.admin?)
+    redirect_to root_path unless current_user && (current_user.editor? || current_user.admin?)
   end
   def require_admin
-    require_user
-    redirect_to root_path unless current_user.admin?
+    redirect_to root_path unless (current_user && current_user.admin?)
   end
 end
