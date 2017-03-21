@@ -1,12 +1,16 @@
 language: ruby
 rvm:
-  - 2.4.0
+- 2.4.0
 services:
-  - postgresql
+- postgresql
 addons:
   code_climate:
     repo_token: fac6ce4e5c35a0ef6a711c9313d43eb5e7bba4db3444b98ab6c5e8a7cfd9d4a1
 before_script:
-  - psql -c 'create database blog_test;' -U postgres
+- psql -c 'create database blog_test;' -U postgres
 after_success:
-  - bundle exec codeclimate-test-reporter
+- bundle exec codeclimate-test-reporter
+deploy:
+  provider: heroku
+  api_key:
+    secure: RpLCEqdusDwwNPKQCyRBvAr4Higup5W71ElQ0jdaAtO2ml7mCWD9/ktBaIwSlurQNlcwk0ZjJiUohXsGxUvM4QZ3G9wg+5FlaVN9p+HTK2fJpXpIHJx+GZ3Mjoqx80tRzN6/p/I7wCcdpItK4C4qW+4dHlNOkfGjRqfFJ44MgbaOIZj83uxo8Hi8BJhl51AXGpYfwoS880BhC5Lr/JQhYMd1LoljzF8QpvywpWtitfAiRr2C+KGgo3U79ow2Treri0lfdp5VrQTrNVedzAud94e+OSIaqqqdPr4NMrWvPMgT/05ge+PJYudQy9mTq6mZNmXdDzV86THUsL1DVfwksAQkv/cNX1HxieEW6b3xStuHq/fY2ujuNCiaRh0Q5+P+k9fIjIWw3StPIOX6ID3FlrM7fOeWbvnb+zO4Kz0Cv/j+99DZ7j7YHe+wztkpqhLSjFBtWYoldeDPpeR+rTKEv93zGf4yxIY3hhy+5ZG4q7irtHZ5d1L+wiT8vMrjT0Lz4F11JqHWWmexf+GVF/BQO1NugU+2Wp1SMEI7wqHMBq19EgeYjFFHVO6ew5+W9N26H8hjARzRLTyCPMtE3JbBfWo1J3R8MlNZt5ZZeAjWw2k1qoB9kLN6STdHSb4NhbVrBp8GIbvLBnAuydd3PiF1vCEEHmjlWcMJp51ZE/RS3xs=
