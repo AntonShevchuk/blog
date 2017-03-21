@@ -1,4 +1,8 @@
 <% content_for :title, "Category #{@category.name}" %>
-<h2>Category <%= @category.name %></h2>
+<h2>
+  Category <%= @category.name %>
+  <%= link_to "Edit", edit_category_path(@category), class: "btn btn-outline-primary btn-sm" if admin? %>
+  <%= link_to "Delete", category_path(@category), method: "delete", data: {confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-sm" if admin? %>
+</h2>
 <hr/>
 <%= render "pages/index" %>

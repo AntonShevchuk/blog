@@ -3,7 +3,8 @@
 <div class="blog-post">
   <h2 class="blog-post-title">
     <%= @page.title %>
-    <%= link_to "Edit", edit_page_path(@page), class: "btn btn-default" if session[:user_id] == @page.user_id %>
+    <%= link_to "Edit", edit_page_path(@page), class: "btn btn-outline-primary" if owner? @page %>
+    <%= link_to "Delete", page_path(@page), method: "delete", class: "btn btn-outline-danger", data: {confirm:"Are you sure?"} if owner? @page %>
   </h2>
   <p class="blog-post-meta">
     Posted at <%= @page.created_at.strftime('%B %d, %Y')%>

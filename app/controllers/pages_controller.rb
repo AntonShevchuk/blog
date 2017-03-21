@@ -1,7 +1,14 @@
 class PagesController < ApplicationController
   before_action :require_user, only: [:new, :edit, :update, :destroy]
+  helper_method :owner?
   def index
     @pages = Page.all
+  end
+  def archive
+    first = Date.new(params[:year].to_i, params[:month].to_i, 01)
+    last = first + 1.month
+    @pages = Page.where('created_at BETWEEN ? AND ?', first, last)
+    @date = first.strftime('%B %Y')
   end
   def show
     @page = Page.find(params[:id])
@@ -24,12 +31,12 @@ class PagesController < ApplicationController
   end
   def edit
     @page = Page.find_by_id(params[:id])
-    owner? @page
+    require_owner @page
     render 'new'
   end
   def update
     @page = Page.find_by_id(params[:id])
-    owner? @page
+    require_owner @page
     if @page.update(page_params)
       flash[:notice] = "Page updated"
       redirect_to page_path(:id => @page.id)
@@ -38,14 +45,23 @@ class PagesController < ApplicationController
       render 'new'
     end
   end
-  def archive
-    first = Date.new(params[:year].to_i, params[:month].to_i, 01)
-    last = first + 1.month
-    @pages = Page.where('created_at BETWEEN ? AND ?', first, last)
-    @date = first.strftime('%B %Y')
+  def destroy
+    @page = Page.find_by_id(params[:id])
+    require_owner @page
+    owner_id = @page.user_id
+    @page.destroy
+    flash[:notice] = "Page removed"
+    redirect_to user_path(:id => owner_id)
   end
   private
+  # Helper
   def owner? page
+    if page.present?
+      return page.user_id == session[:user_id]
+    end
+    return false
+  end
+  def require_owner page
     unless page.present?
       flash[:alert] = "Page not found"
       redirect_to pages_path

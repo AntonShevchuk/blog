@@ -1,38 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= yield :title %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+  <%= render 'layouts/head' %>
   <body>
-    <div class="blog-masthead sticky-top">
-      <div class="container">
-        <nav class="navbar navbar-toggleable-md navbar-light ">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">Blog</a>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav  mr-auto">
-              <%= link_to "Home", root_path, class: "nav-item nav-link #{'active' if current_page? root_path}" %>
-              <%= link_to "Pages", pages_path, class: "nav-item nav-link #{'active' if current_page? pages_path}" %>
-            </div>
-            <div class="navbar-nav my-2 my-lg-0">
-              <% if current_user %>
-                <%= link_to current_user.name, user_path(current_user), class: "nav-item nav-link #{'active' if current_page? user_path(current_user)}"  %>
-                <%= link_to "Log out", logout_path, method: "delete", class: "nav-item nav-link" %>
-              <% else %>
-                <%= link_to "Login", login_path, class: "nav-item nav-link #{'active' if current_page? login_path}"  %>
-                <%= link_to "Signup", signup_path, class: "nav-item nav-link #{'active' if current_page? signup_path}"  %>
-              <% end %>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
+    <%= render 'layouts/navbar' %>
     <div class="blog-header">
       <div class="container">
         <h1 class="blog-title">The Bootstrap Blog</h1>
@@ -46,19 +16,31 @@
           <%= boostrap_flash_messages %>
           <%= yield %>
         </div>
-
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
           <%= yield :sidebar %>
-          <% if @archive_data %>
+
+          <% if category_data %>
+          <div class="sidebar-module">
+            <h4>Categories</h4>
+            <ol class="list-unstyled">
+              <% category_data.each do |cat| %>
+              <li><%= link_to cat.name, category_path(id:cat.id) %></a>
+              <% end %>
+            </ol>
+          </div>
+          <% end %>
+
+          <% if archive_data %>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <% @archive_data.each do |data| %>
+              <% archive_data.each do |data| %>
               <li><%= link_to Date.new(data.year.to_i, data.month.to_i).strftime('%B %Y'), archive_path(year:data.year, month:data.month) %></a>
               <% end %>
             </ol>
           </div>
           <% end %>
+
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
@@ -70,12 +52,6 @@
       </div>
     </div> <!-- /container -->
 
-
-    <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

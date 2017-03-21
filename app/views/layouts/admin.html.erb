@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/head' %>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="blog-header">
+      <div class="container">
+        <h1 class="blog-title">Admin Dashboard</h1>
+        <p class="lead blog-description">Be careful with sensitive data</p>
+      </div>
+    </div>
+    <div class="container blog-main">
+          <%= boostrap_flash_messages %>
+          <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
