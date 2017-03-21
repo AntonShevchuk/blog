@@ -4,12 +4,6 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
   end
-  def archive
-    first = Date.new(params[:year].to_i, params[:month].to_i, 01)
-    last = first + 1.month
-    @pages = Page.where('created_at BETWEEN ? AND ?', first, last)
-    @date = first.strftime('%B %Y')
-  end
   def show
     @page = Page.find(params[:id])
     @older = Page.where('created_at < ?', @page.created_at).order('created_at DESC').take
@@ -52,6 +46,12 @@ class PagesController < ApplicationController
     @page.destroy
     flash[:notice] = "Page removed"
     redirect_to user_path(:id => owner_id)
+  end
+  def archive
+    first = Date.new(params[:year].to_i, params[:month].to_i, 01)
+    last = first + 1.month
+    @pages = Page.where('created_at BETWEEN ? AND ?', first, last)
+    @date = first.strftime('%B %Y')
   end
   private
   # Helper

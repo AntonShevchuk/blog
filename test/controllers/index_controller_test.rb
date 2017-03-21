@@ -5,5 +5,4 @@ class IndexControllerTest < ActionDispatch::IntegrationTest
     get '/'
     assert_response :success
   end
-
 end
