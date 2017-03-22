@@ -5,7 +5,7 @@ class TagsController < ApplicationController
   end
   def show
     @tag = Tag.find(params[:id])
-    @pages = @tag.pages
+    @pages = @tag.pages.paginate(:page => params[:page])
   end
   def new
     @tag = Tag.new

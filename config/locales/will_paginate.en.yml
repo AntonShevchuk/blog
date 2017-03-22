@@ -1,0 +1,4 @@
+en:
+  will_paginate:
+    previous_label: "Prev"
+    next_label: "Next"

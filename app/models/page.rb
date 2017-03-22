@@ -4,4 +4,5 @@ class Page < ApplicationRecord
   has_many :parts
   has_many :tags, through: :parts
   validates :title, :content, presence: true
+  self.per_page = 4
 end

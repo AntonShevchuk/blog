@@ -23,11 +23,11 @@
   <% if !@older %>
     <a class="btn btn-outline-secondary disabled" href="#">Older</a>
   <% else %>
-    <%= link_to "Older", page_path(@older), class: "btn btn-outline-primary" %>
+    <%= link_to "Prev", page_path(@older), class: "btn btn-outline-primary" %>
   <% end %>
   <% if !@newer %>
     <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
   <% else %>
-    <%= link_to "Newer", page_path(@newer), class: "btn btn-outline-primary" %>
+    <%= link_to "Next", page_path(@newer), class: "btn btn-outline-primary" %>
   <% end %>
 </nav>

@@ -5,11 +5,11 @@ class CategoriesController < ApplicationController
   end
   def show
     @category = Category.find(params[:id])
-    @pages = @category.pages
+    @pages = @category.pages.paginate(:page => params[:page])
   end
   def show_by_name
     @category = Category.where(name: params[:name]).take
-    @pages = @category.pages
+    @pages = @category.pages.paginate(:page => params[:page])
     render 'show'
   end
   def new

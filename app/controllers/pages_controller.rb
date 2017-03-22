@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :require_owner, only: [:edit, :update, :destroy]
   helper_method :owner?
   def index
-    @pages = Page.all
+    @pages = Page.paginate(:page => params[:page])
   end
   def show
     @page = Page.find(params[:id])
