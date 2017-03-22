@@ -192,3 +192,23 @@ h3.blog-post-title {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+ /*
+  * Main
+  */
+.checklist {
+  li {
+    list-style: none;
+  }
+  li:before {
+    content: '☐';
+    margin: 1px;
+  }
+  li.done {
+    color: #aaa
+  }
+  li.done:before {
+    content: '☑';
+    margin: 1px;
+  }
+}
