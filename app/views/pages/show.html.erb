@@ -21,12 +21,12 @@
 </div>
 <nav class="blog-pagination">
   <% if !@older %>
-    <a class="btn btn-outline-secondary disabled" href="#">Older</a>
+    <a class="btn btn-outline-secondary disabled" href="#">Prev</a>
   <% else %>
     <%= link_to "Prev", page_path(@older), class: "btn btn-outline-primary" %>
   <% end %>
   <% if !@newer %>
-    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    <a class="btn btn-outline-secondary disabled" href="#">Next</a>
   <% else %>
     <%= link_to "Next", page_path(@newer), class: "btn btn-outline-primary" %>
   <% end %>

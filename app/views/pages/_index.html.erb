@@ -8,4 +8,4 @@
   </p>
 </div>
 <% end %>
-<%= will_paginate @pages, class: "blog-navigation" %>
+<%= will_paginate @pages, class: "blog-pagination", renderer: BootstrapHelper::LinkRenderer %>
