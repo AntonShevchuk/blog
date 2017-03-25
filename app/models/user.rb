@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, confirmation: true
+  self.per_page = 10
 
   ROLES = ['admin', 'editor']
 

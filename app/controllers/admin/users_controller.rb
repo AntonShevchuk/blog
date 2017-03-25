@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   layout "admin"
   before_action :require_admin
   def index
-    @users = User.all
+    @users = User.order(sort_column + " " + sort_direction).paginate(:page => params[:page])
   end
   def show
     @user = User.find(params[:id])
@@ -37,5 +37,11 @@ class Admin::UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :bio, :role, :password, :password_confirmation)
+  end
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+  end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

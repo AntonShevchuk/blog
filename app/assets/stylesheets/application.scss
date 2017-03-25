@@ -212,3 +212,13 @@ h3.blog-post-title {
     margin: 1px;
   }
 }
+
+/*
+ * Admin part
+ */
+th a.asc:after {
+ content: " △"
+}
+th a.desc:after {
+ content: " ▽"
+}
