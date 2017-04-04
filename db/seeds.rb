@@ -118,3 +118,110 @@ Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero 
 </p>"
 )
 page6.tags << [tag4]
+
+Comment.create(
+  user_id: freida.id,
+  page_id: page1.id,
+  content: "Thank you for your text"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page1.id,
+  content: "Thank you!"
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page1.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)
+
+
+Comment.create(
+  user_id: freida.id,
+  page_id: page2.id,
+  content: "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page2.id,
+  content: "Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam aliquet mi a venenatis ultricies. Nunc malesuada quam nec sollicitudin dignissim. Vestibulum laoreet diam quis cursus sodales. Nullam condimentum dignissim fringilla. Donec facilisis semper ex, id bibendum tortor tincidunt facilisis. Nam tempus ornare arcu in fermentum. Vivamus odio quam, pretium ac nibh ac, porta scelerisque ipsum."
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page2.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)
+Comment.create(
+  user_id: freida.id,
+  page_id: page2.id,
+  content: "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page2.id,
+  content: "Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam aliquet mi a venenatis ultricies. Nunc malesuada quam nec sollicitudin dignissim. Vestibulum laoreet diam quis cursus sodales. Nullam condimentum dignissim fringilla. Donec facilisis semper ex, id bibendum tortor tincidunt facilisis. Nam tempus ornare arcu in fermentum. Vivamus odio quam, pretium ac nibh ac, porta scelerisque ipsum."
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page2.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)
+Comment.create(
+  user_id: freida.id,
+  page_id: page2.id,
+  content: "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page2.id,
+  content: "Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam aliquet mi a venenatis ultricies. Nunc malesuada quam nec sollicitudin dignissim. Vestibulum laoreet diam quis cursus sodales. Nullam condimentum dignissim fringilla. Donec facilisis semper ex, id bibendum tortor tincidunt facilisis. Nam tempus ornare arcu in fermentum. Vivamus odio quam, pretium ac nibh ac, porta scelerisque ipsum."
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page2.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)
+
+Comment.create(
+  user_id: freida.id,
+  page_id: page3.id,
+  content: "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page3.id,
+  content: "Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam aliquet mi a venenatis ultricies. Nunc malesuada quam nec sollicitudin dignissim. Vestibulum laoreet diam quis cursus sodales. Nullam condimentum dignissim fringilla. Donec facilisis semper ex, id bibendum tortor tincidunt facilisis. Nam tempus ornare arcu in fermentum. Vivamus odio quam, pretium ac nibh ac, porta scelerisque ipsum."
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page3.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)
+
+Comment.create(
+  user_id: freida.id,
+  page_id: page4.id,
+  content: "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?"
+)
+
+Comment.create(
+  user_id: mateo.id,
+  page_id: page4.id,
+  content: "Cras blandit dictum velit, a malesuada sem fermentum in. Pellentesque eu libero erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam aliquet mi a venenatis ultricies. Nunc malesuada quam nec sollicitudin dignissim. Vestibulum laoreet diam quis cursus sodales. Nullam condimentum dignissim fringilla. Donec facilisis semper ex, id bibendum tortor tincidunt facilisis. Nam tempus ornare arcu in fermentum. Vivamus odio quam, pretium ac nibh ac, porta scelerisque ipsum."
+)
+
+Comment.create(
+  user_id: julian.id,
+  page_id: page4.id,
+  content: "Vestibulum id nisi tempus eros elementum tempor. Donec porta augue magna, ac consequat nisi scelerisque sed. Sed commodo, dui vel cursus sodales, orci nisl laoreet justo, nec luctus urna felis non neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur posuere nulla erat, sed auctor velit convallis eu. Proin eleifend augue vitae euismod egestas. Maecenas lobortis magna vel enim vulputate aliquet. Nullam pellentesque lobortis dignissim. Sed ac mi et quam posuere aliquam a a metus."
+)

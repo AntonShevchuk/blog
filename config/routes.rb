@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get '/category/:name', to: 'categories#show_by_name', as: 'categoryname'
 
   resources :users
-  resources :pages
+  resources :pages do
+    resources :comments
+  end
   resources :categories
   resources :tags
 

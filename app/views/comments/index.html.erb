@@ -1,0 +1,12 @@
+
+<div class="blog-post">
+<% @comments.each do |comment| %>
+  <p class="blog-post-meta">
+      Posted at <%= comment.created_at.strftime('%B %d, %Y')%>
+      by <%= link_to comment.user.name, user_path(comment.user) %>
+  </p>
+  <p class="blog-post-comment">
+    <%= comment.content %>
+  </p>
+<% end %>
+</div>
